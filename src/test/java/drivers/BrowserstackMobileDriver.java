@@ -16,7 +16,7 @@ public class BrowserstackMobileDriver implements WebDriverProvider{
     public static URL getBrowserstackUrl()  {
 
         try {
-            return new URL(SetConfig.browserStackConfig.url());
+            return new URL(SetConfig.getUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -26,11 +26,11 @@ public class BrowserstackMobileDriver implements WebDriverProvider{
     public WebDriver createDriver(DesiredCapabilities caps) {
 
         // Set your access credentials
-        caps.setCapability("browserstack.user", SetConfig.authConfig.user());
-        caps.setCapability("browserstack.key", SetConfig.authConfig.key());
+        caps.setCapability("browserstack.user", SetConfig.getUser());
+        caps.setCapability("browserstack.key", SetConfig.getKey());
 
         // Set URL of the application under test
-        caps.setCapability("app", SetConfig.browserStackConfig.app());
+        caps.setCapability("app", SetConfig.getApp());
 
         // Specify device and os_version for testing
         caps.setCapability("device", "Google Pixel 3");
@@ -40,7 +40,6 @@ public class BrowserstackMobileDriver implements WebDriverProvider{
         caps.setCapability("project", "First Java Project");
         caps.setCapability("build", "browserstack-build-1");
         caps.setCapability("name", "first_test");
-
 
         return new AndroidDriver(getBrowserstackUrl(), caps);
     }

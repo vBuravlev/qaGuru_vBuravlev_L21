@@ -8,6 +8,12 @@ import org.aeonbits.owner.Config;
 
 public interface BrowserStackConfig extends Config {
 
+    @Key("user")
+    String user();
+
+    @Key("key")
+    String key();
+
     @Key("url")
     String url();
 

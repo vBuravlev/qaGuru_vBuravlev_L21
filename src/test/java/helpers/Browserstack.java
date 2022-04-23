@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.given;
 public class Browserstack {
     public static String videoUrl(String sessionId) {
         return given()
-                .auth().basic(SetConfig.authConfig.user(), SetConfig.authConfig.key())
+                .auth().basic(SetConfig.getUser(), SetConfig.getKey())
                 .when()
                 .get("https://api-cloud.browserstack.com/app-automate/sessions/" + sessionId +".json")
                 .then()
