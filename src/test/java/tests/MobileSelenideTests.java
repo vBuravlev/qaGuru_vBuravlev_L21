@@ -18,7 +18,6 @@ import static io.restassured.RestAssured.given;
 @Tag("selenide")
 public class MobileSelenideTests extends TestBase {
 
-
     @Test
     @DisplayName("The first test for the Wiki app for Android")
     void searchTest() {
